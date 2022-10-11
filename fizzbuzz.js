@@ -5,7 +5,9 @@ function fizzbuzz() {
     
     console.log('Welcome to FizzBuzz!');
 
-    // Put your code here...
+    for (let i=1; i<101; i++) {
+        console.log(i);
+    }
 
     
 }
