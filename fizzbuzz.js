@@ -18,7 +18,7 @@ function rulesQuery() {
         Reverse: 17,
     };
     while (true) {
-        let custom = prompt(
+        const custom = prompt(
             "Would you like to use custom rules? (Y/N) "
         ).toUpperCase();
         if (custom == "Y") {
@@ -43,22 +43,20 @@ function customRules(rules) {
 function loopValues(maxNum, rules) {
     for (let i = 1; i < maxNum; i++) {
         let outputArray = [];
-
-        //Check values
         let ruleNum = 0;
         for (let j in rules) {
             if (i % rules[j] == 0) {
                 if (ruleNum == 3) {
                     outputArray = ["Bong"];
                 } else if (ruleNum == 4) {
-                    let fezzPos = outputArray.length;
+                    outputArray.push("Fezz");
                     for (let k in outputArray) {
                         if (outputArray[k].startsWith("B")) {
-                            fezzPos = k;
+                            outputArray.pop();
+                            outputArray.splice(k, 0, "Fezz");
                             break;
                         }
                     }
-                    outputArray.splice(fezzPos, 0, "Fezz");
                 } else if (ruleNum == 5) {
                     outputArray = outputArray.reverse();
                 } else {
