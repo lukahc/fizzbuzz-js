@@ -1,8 +1,9 @@
 // Here, we create our main function.
 function fizzbuzz() {
   console.log("Welcome to FizzBuzz!");
-
-  for (let i = 1; i < 101; i++) {
+  const prompt = require('prompt-sync')();
+  const maxNum = Number(prompt("Please enter maximum number: ")) + 1;
+  for (let i = 1; i < maxNum; i++) {
     let outputArray = [];
     if (i % 3 == 0) {
       outputArray.push("Fizz");
@@ -18,8 +19,8 @@ function fizzbuzz() {
     }
     if (i % 13 == 0) {
       for (let j in outputArray) {
-        if (j.startsWith("B")) {
-          outputArray.splice(j-1, 0, "Fezz");
+        if (outputArray[j].startsWith("B")) {
+          outputArray.splice(j, 0, "Fezz");
           break;
         }
       }
